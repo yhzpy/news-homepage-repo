@@ -1,6 +1,6 @@
-# Frontend Mentor - Contact form
+# Frontend Mentor - News homepage
 
-![Design preview for the Contact form coding challenge](./design/desktop-preview.jpg)
+![Design preview for the News homepage coding challenge](preview.jpg)
 
 ## Welcome! 👋
 
@@ -8,22 +8,16 @@ Thanks for checking out this front-end coding challenge.
 
 [Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
 
-**To do this challenge, you need a good understanding of HTML, CSS and JavaScript.**
+**To do this challenge, you need a good understanding of HTML and CSS, and basic JavaScript.**
 
 ## The challenge
 
-Your challenge is to build out this contact form and get it looking as close to the design as possible. Pay particular attention to making this form accessible. Building accessible forms is a key skill for front-end developers. So this is a perfect challenge to practice.
+Your challenge is to build out this news website homepage and get it looking as close to the design as possible.
 
 You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
 
-Your users should be able to: 
+Your users should be able to:
 
-- Complete the form and see a success toast message upon successful submission
-- Receive form validation messages if:
-  - A required field has been missed
-  - The email address is not formatted correctly
-- Complete the form only using their keyboard
-- Have inputs, error messages, and the success message announced on their screen reader
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
@@ -35,7 +29,7 @@ Your task is to build out the project to the designs inside the `/design` folder
 
 The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+If you would like the Figma design file to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
 
 All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
 
@@ -67,7 +61,7 @@ Feel free to use any workflow that you feel comfortable with. Below is a suggest
 
 ## Deploying your project
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
 
 - [GitHub Pages](https://pages.github.com/)
 - [Vercel](https://vercel.com/)
@@ -93,7 +87,7 @@ Remember, if you're looking for feedback on your solution, be sure to ask questi
 
 There are multiple places you can share your solution:
 
-1. Share your solution page in the **#finished-projects** channel of our [community](https://www.frontendmentor.io/community). 
+1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
 2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
 3. Share your solution on other social channels like LinkedIn.
 4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
@@ -104,7 +98,7 @@ The more specific you are with your questions the more likely it is that another
 
 ## Got feedback for us?
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi@frontendmentor.io.
 
 This challenge is completely free. Please share it with anyone who will find it useful for practice.
 

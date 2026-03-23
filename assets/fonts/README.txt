@@ -1,32 +1,21 @@
-Karla Variable Font
+Inter Variable Font
 ===================
 
-This download contains Karla as both variable fonts and static fonts.
+This download contains Inter as both a variable font and static fonts.
 
-Karla is a variable font with this axis:
+Inter is a variable font with these axes:
+  slnt
   wght
 
-This means all the styles are contained in these files:
-  Karla-VariableFont_wght.ttf
-  Karla-Italic-VariableFont_wght.ttf
+This means all the styles are contained in a single file:
+  Inter-VariableFont_slnt,wght.ttf
 
 If your app fully supports variable fonts, you can now pick intermediate styles
 that aren’t available as static fonts. Not all apps support variable fonts, and
-in those cases you can use the static font files for Karla:
-  static/Karla-ExtraLight.ttf
-  static/Karla-Light.ttf
-  static/Karla-Regular.ttf
-  static/Karla-Medium.ttf
-  static/Karla-SemiBold.ttf
-  static/Karla-Bold.ttf
-  static/Karla-ExtraBold.ttf
-  static/Karla-ExtraLightItalic.ttf
-  static/Karla-LightItalic.ttf
-  static/Karla-Italic.ttf
-  static/Karla-MediumItalic.ttf
-  static/Karla-SemiBoldItalic.ttf
-  static/Karla-BoldItalic.ttf
-  static/Karla-ExtraBoldItalic.ttf
+in those cases you can use the static font files for Inter:
+  static/Inter-Regular.ttf
+  static/Inter-Bold.ttf
+  static/Inter-ExtraBold.ttf
 
 Get started
 -----------

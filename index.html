@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Contact form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #dfe8d8;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 48px 56px;
+            max-width: 640px;
+            width: 100%;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .form-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2d3b2d;
+            margin-bottom: 32px;
+            letter-spacing: -0.5px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .form-row .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #2d3b2d;
+            margin-bottom: 8px;
+        }
+
+        .form-label .required {
+            color: #0a7b5a;
+            margin-left: 4px;
+        }
+
+        .form-input {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #c8cfc8;
+            border-radius: 8px;
+            padding: 0 16px;
+            font-size: 15px;
+            color: #2d3b2d;
+            background-color: #fff;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-input:focus {
+            border-color: #0a7b5a;
+        }
+
+        .form-input:hover {
+            border-color: #0c7d69;
+        }
+
+        .form-input.error {
+            border-color: #e74c3c;
+        }
+
+        .form-textarea {
+            width: 100%;
+            min-height: 120px;
+            border: 1px solid #c8cfc8;
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 15px;
+            font-family: inherit;
+            color: #2d3b2d;
+            background-color: #fff;
+            outline: none;
+            resize: vertical;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-textarea:focus {
+            border-color: #0a7b5a;
+        }
+
+        .form-textarea:hover {
+            border-color: #0c7d69;
+        }
+
+        .form-textarea.error {
+            border-color: #e74c3c;
+        }
+
+        /* Query Type Radio Buttons */
+        .query-type-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .query-type-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .query-type-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .query-type-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: 48px;
+            border: 1px solid #c8cfc8;
+            border-radius: 8px;
+            padding: 0 16px;
+            cursor: pointer;
+            font-size: 15px;
+            color: #2d3b2d;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .query-type-label:hover {
+            border-color: #0c7d69;
+        }
+
+        .query-type-option input[type="radio"]:checked + .query-type-label {
+            border-color: #0a7b5a;
+            background-color: #e8f5e9;
+        }
+
+        .radio-custom {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #c8cfc8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: border-color 0.2s ease;
+        }
+
+        .radio-custom::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #0a7b5a;
+            transform: scale(0);
+            transition: transform 0.2s ease;
+        }
+
+        .query-type-option input[type="radio"]:checked + .query-type-label .radio-custom {
+            border-color: #0a7b5a;
+        }
+
+        .query-type-option input[type="radio"]:checked + .query-type-label .radio-custom::after {
+            transform: scale(1);
+        }
+
+        .query-type-group.error .query-type-label {
+            border-color: #e74c3c;
+        }
+
+        /* Consent Checkbox */
+        .consent-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+            margin-top: 8px;
+        }
+
+        .consent-group input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .checkbox-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .checkbox-custom {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #c8cfc8;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .checkbox-custom::after {
+            content: '';
+            width: 10px;
+            height: 6px;
+            border-left: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            transform: rotate(-45deg) scale(0);
+            transition: transform 0.2s ease;
+            margin-bottom: 2px;
+        }
+
+        .consent-group input[type="checkbox"]:checked + .checkbox-custom {
+            background-color: #0a7b5a;
+            border-color: #0a7b5a;
+        }
+
+        .consent-group input[type="checkbox"]:checked + .checkbox-custom::after {
+            transform: rotate(-45deg) scale(1);
+        }
+
+        .consent-label {
+            font-size: 14px;
+            color: #2d3b2d;
+            cursor: pointer;
+        }
+
+        .consent-label .required {
+            color: #0a7b5a;
+            margin-left: 2px;
+        }
+
+        .consent-group.error .checkbox-custom {
+            border-color: #e74c3c;
+        }
+
+        /* Error Message */
+        .error-message {
+            font-size: 12px;
+            color: #e74c3c;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .error-message.visible {
+            display: block;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            height: 52px;
+            background-color: #0a7b5a;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .submit-btn:hover {
+            background-color: #086b4d;
+        }
+
+        .submit-btn:active {
+            background-color: #065c42;
+        }
+
+        /* Success Toast (hidden by default) */
+        .toast {
+            visibility: hidden;
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            opacity: 0;
+            background-color: #2d3b2d;
+            color: #fff;
+            padding: 16px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            z-index: 1000;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .toast.visible {
+            transform: translateX(-50%) translateY(0);
+            visibility: visible;
+            opacity: 1;
+        }
+        .error{
+          border-color: #e74c3c !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Toast notification for success -->
+    <div class="toast" id="successToast">
+        <strong>Message Sent!</strong>
+        <p>Thanks for completing the form. We'll be in touch soon!</p>
+    </div>
+
+    <div class="form-container">
+        <h1 class="form-title">Contact Us</h1>
+
+        <form id="contactForm" novalidate>
+            <!-- First Name & Last Name -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="firstName">
+                        First Name <span class="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        class="form-input"
+                        id="firstName"
+                        name="firstName"
+                        required
+                    />
+                    <span class="error-message" id="firstNameError">This field is required</span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="lastName">
+                        Last Name <span class="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        class="form-input"
+                        id="lastName"
+                        name="lastName"
+                        required
+                    />
+                    <span class="error-message" id="lastNameError">This field is required</span>
+                </div>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group">
+                <label class="form-label" for="emailAddress">
+                    Email Address <span class="required">*</span>
+                </label>
+                <input
+                    type="email"
+                    class="form-input"
+                    id="emailAddress"
+                    name="emailAddress"
+                    required
+                />
+                <span class="error-message" id="emailError">Please enter a valid email address</span>
+            </div>
+
+            <!-- Query Type -->
+            <div class="form-group">
+                <label class="form-label">
+                    Query Type <span class="required">*</span>
+                </label>
+                <div class="query-type-group" id="queryTypeGroup">
+                    <div class="query-type-option">
+                        <input
+                            type="radio"
+                            id="generalEnquiry"
+                            name="queryType"
+                            value="general"
+                            required
+                        />
+                        <label class="query-type-label" for="generalEnquiry">
+                            <span class="radio-custom"></span>
+                            General Enquiry
+                        </label>
+                    </div>
+                    <div class="query-type-option">
+                        <input
+                            type="radio"
+                            id="supportRequest"
+                            name="queryType"
+                            value="support"
+                            required
+                        />
+                        <label class="query-type-label" for="supportRequest">
+                            <span class="radio-custom"></span>
+                            Support Request
+                        </label>
+                    </div>
+                </div>
+                <span class="error-message" id="queryTypeError">Please select a query type</span>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+                <label class="form-label" for="message">
+                    Message <span class="required">*</span>
+                </label>
+                <textarea
+                    class="form-textarea"
+                    id="message"
+                    name="message"
+                    required
+                ></textarea>
+                <span class="error-message" id="messageError">This field is required</span>
+            </div>
+
+            <!-- Consent Checkbox -->
+            <div class="consent-group" id="consentGroup">
+                <label class="checkbox-wrapper">
+                    <input
+                        type="checkbox"
+                        id="consent"
+                        name="consent"
+                        required
+                    />
+                    <span class="checkbox-custom"></span>
+                </label>
+                <label class="consent-label" for="consent">
+                    I consent to being contacted by the team <span class="required">*</span>
+                </label>
+            </div>
+            <span class="error-message" id="consentError" style="margin-top: -24px; margin-bottom: 24px;">
+                To submit this form, please consent to being contacted
+            </span>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn" id="submitBtn">
+                Submit
+            </button>
+        </form>
+    </div>
+
+    <script>
+        const submitBtn = document.getElementById('submitBtn');
+        const successToast = document.getElementById('successToast');
+        submitBtn.addEventListener("click",function(e){
+          e.preventDefault()
+          const form = document.getElementById('contactForm');
+          const emailInput = document.getElementById('emailAddress');
+          const emailError = document.getElementById('emailError');
+          const firstNameInput = document.getElementById('firstName');
+          const firstNameError = document.getElementById('firstNameError');
+          const lastNameInput = document.getElementById('lastName');
+          const lastNameError = document.getElementById('lastNameError');
+          const messageInput = document.getElementById('message');
+          const messageError = document.getElementById('messageError');
+          const queryTypeGroup = document.getElementById('queryTypeGroup');
+          const queryTypeError = document.getElementById('queryTypeError');
+          const consentGroup = document.getElementById('consentGroup');
+          const consentError = document.getElementById('consentError');
+          validateConsent(consentGroup,consentError);
+          validateEmail(emailInput,emailError);
+          validateFirstName(firstNameInput,firstNameError);
+          validateLastName(lastNameInput,lastNameError); 
+          validateMessage(messageInput,messageError);
+          validateQueryType(queryTypeGroup,queryTypeError);
+          if(validateEmail(emailInput,emailError) && validateFirstName(firstNameInput,firstNameError) && validateLastName(lastNameInput,lastNameError) && validateMessage(messageInput,messageError) && validateQueryType(queryTypeGroup,queryTypeError) && validateConsent(consentGroup,consentError)){
+            form.reset();
+            successToast.classList.add('visible');
+            setTimeout(() => {
+              successToast.classList.remove('visible');
+            }, 3000);
+          }
+        })
+        function validateEmail(input,errorElement){
+          const v = input.validity
+          if (v.valueMissing) {
+            input.classList.add('error');
+            errorElement.classList.add('visible');
+            return false;
+          } else if(v.typeMismatch) {
+            input.classList.add('error');
+            errorElement.classList.add('visible');
+            return false;
+          } else {
+            input.classList.remove('error');
+            errorElement.classList.remove('visible');
+            return true;
+          }
+        }
+        function validateFirstName(input,errorElement){
+          const v = input.validity
+          if (v.valueMissing) {
+            input.classList.add('error');
+            errorElement.classList.add('visible');
+            return false;
+          } else if(v.typeMismatch) {
+            input.classList.add('error');
+            errorElement.classList.add('visible');
+            return false;
+
+          } else {
+            input.classList.remove('error');
+            errorElement.classList.remove('visible');
+            return true;
+          }
+        }
+        function validateLastName(input,errorElement){
+          const v = input.validity
+          if (v.valueMissing) {
+            input.classList.add('error');
+            errorElement.classList.add('visible');
+            return false;
+          } else if(v.typeMismatch) {
+            input.classList.add('error');
+            errorElement.classList.add('visible');
+            return false;
+
+          } else {
+            input.classList.remove('error');
+            errorElement.classList.remove('visible');
+            return true;
+          }
+        }
+        function validateMessage(input,errorElement){
+          const v = input.validity
+          if (v.valueMissing) {
+            input.classList.add('error');
+            errorElement.classList.add('visible');
+            return false;
+          } else if(v.typeMismatch) {
+            input.classList.add('error');
+            errorElement.classList.add('visible');
+            return false;
+          } else {
+            input.classList.remove('error');
+            errorElement.classList.remove('visible');
+            return true;
+          }
+        }
+        function validateQueryType(group,errorElement){
+          const options = group.querySelectorAll('input[type="radio"]');
+          let isChecked = false;
+          options.forEach(option => { 
+            if (option.checked) {
+              isChecked = true;
+            }
+          });
+          if (!isChecked) {
+            group.classList.add('error');
+            errorElement.classList.add('visible');
+            return false;
+          } else {
+            group.classList.remove('error');
+            errorElement.classList.remove('visible');
+            return true;
+          }
+        }
+        function validateConsent(group,errorElement){
+          const checkbox = group.querySelector('input[type="checkbox"]');
+          if (!checkbox.checked) {
+            group.classList.add('error');
+            errorElement.classList.add('visible');
+            return false;
+          } else {
+            group.classList.remove('error');
+            errorElement.classList.remove('visible');
+            return true;
+          }
+        }
+    </script>
+</body>
+</html>
